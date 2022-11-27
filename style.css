@@ -129,7 +129,6 @@ h3 {
   justify-content: space-between;
   align-items: center;
   padding-block: 2rem;
-  position: relative;
 }
 
 .toggle-button {
@@ -153,12 +152,12 @@ h3 {
   .main-nav[data-visible="true"] {
     background-color: var(--very-dark-violet);
     color: var(--very-light-gray);
-    position: fixed;
+    position: absolute;
     top: calc(100vh - 85%);
     left: 0;
     right: 0;
     bottom: 0;
-
+    z-index: 10;
     text-transform: uppercase;
     font-family: var(--fw-secondary);
     font-weight: var(--fw-700);
@@ -217,10 +216,22 @@ h3 {
 
 .hero__content {
   order: 1;
-  padding-block: 4rem;
+  padding: 4rem 1rem;
   position: relative;
-  background: url(./images/bg-pattern-intro-left-mobile.svg) top left no-repeat,
-    url(./images/bg-pattern-intro-right-mobile.svg) bottom right no-repeat;
+}
+
+.hero__content::before {
+  content: url(/images/bg-pattern-intro-left-mobile.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero__content::after {
+  content: url(/images/bg-pattern-intro-right-mobile.svg);
+  position: absolute;
+  bottom: -200px;
+  right: 0;
 }
 
 .hero__content h1 {
@@ -290,7 +301,7 @@ h3 {
 }
 
 /* Our Work */
-.how-we-work {
+.how-we-work__content {
   margin-block: 5rem;
   background-color: var(--dark-violet);
   color: var(--very-light-gray);
@@ -303,15 +314,15 @@ h3 {
   background-repeat: no-repeat;
 }
 
-.how-we-work h2 {
+.how-we-work__content h2 {
   font-size: 2.5rem;
 }
-.how-we-work .cta-button {
+.how-we-work__content .cta-button {
   padding: 0.5rem 1.5rem;
   margin-top: 1rem;
 }
 
-.how-we-work .cta-button:hover {
+.how-we-work__content .cta-button:hover {
   color: var(--very-dark-violet);
   background-color: var(--very-light-gray);
 }
@@ -418,6 +429,11 @@ footer {
     background-color: var(--very-dark-violet);
   }
 
+  .hero__content::before,
+  .hero__content::after {
+    display: none;
+  }
+
   .features__list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -437,10 +453,22 @@ footer {
     margin-inline: auto;
   }
   .hero {
-    background: url(./images/bg-pattern-intro-left-desktop.svg) bottom left
-        no-repeat,
-      url(./images/bg-pattern-intro-right-desktop.svg) bottom right no-repeat,
-      var(--dark-violet);
+    background-color: var(--dark-violet);
+    position: relative;
+  }
+
+  .hero::before {
+    content: url(/images/bg-pattern-intro-left-desktop.svg);
+    position: absolute;
+    bottom: -330px;
+    left: 0;
+  }
+
+  .hero::after {
+    content: url(/images/bg-pattern-intro-right-desktop.svg);
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
   .hero .container {
@@ -448,7 +476,8 @@ footer {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 2rem;
-    width: 87.5%;
+    width: 77.08%;
+    margin-inline: auto;
   }
 
   .hero__body {
@@ -458,6 +487,11 @@ footer {
   .hero__content {
     text-align: left;
     background: none;
+  }
+
+  .hero__content h1 {
+    font-size: 5rem;
+    line-height: 4rem;
   }
 
   .features::before {
@@ -470,24 +504,24 @@ footer {
     text-align: left;
   }
 
-  .how-we-work {
+  .how-we-work__content {
     background: url(./images/bg-pattern-how-we-work-desktop.svg) top right
         no-repeat,
       var(--dark-violet);
   }
 
-  .how-we-work .container {
+  .how-we-work__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-content: center;
+    padding: 2rem;
   }
 
-  .how-we-work h2 {
+  .how-we-work__content h2 {
     text-align: left;
-    width: 80%;
   }
 
-  .how-we-work a {
+  .how-we-work__content a {
     width: fit-content;
     height: fit-content;
     margin-left: auto;
