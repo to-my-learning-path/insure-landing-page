@@ -221,14 +221,14 @@ h3 {
 }
 
 .hero__content::before {
-  content: url(/images/bg-pattern-intro-left-mobile.svg);
+  content: url(./images/bg-pattern-intro-left-mobile.svg);
   position: absolute;
   top: 0;
   left: 0;
 }
 
 .hero__content::after {
-  content: url(/images/bg-pattern-intro-right-mobile.svg);
+  content: url(./images/bg-pattern-intro-right-mobile.svg);
   position: absolute;
   bottom: -200px;
   right: 0;
@@ -458,14 +458,14 @@ footer {
   }
 
   .hero::before {
-    content: url(/images/bg-pattern-intro-left-desktop.svg);
+    content: url(./images/bg-pattern-intro-left-desktop.svg);
     position: absolute;
     bottom: -330px;
     left: 0;
   }
 
   .hero::after {
-    content: url(/images/bg-pattern-intro-right-desktop.svg);
+    content: url(./images/bg-pattern-intro-right-desktop.svg);
     position: absolute;
     top: 0;
     right: 0;
